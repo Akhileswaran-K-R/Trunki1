@@ -2,6 +2,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import MascotVideo from "../assets/video1.mp4"; // you can also use an image if you want
+import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 
 
 // Dummy data for sections
@@ -131,15 +132,22 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-6">
           <div className="text-lg md:text-xl font-bold">Trunki © 2026</div>
           <div className="flex gap-4">
-            {["FB", "TW", "YT"].map((icon) => (
-              <button
-                key={icon}
-                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-sm md:text-base transition"
-              >
-                {icon}
-              </button>
-            ))}
-          </div>
+  {[
+    { name: "FB", icon: <FaFacebookF /> },
+    { name: "TW", icon: <FaTwitter /> },
+    { name: "YT", icon: <FaYoutube /> },
+  ].map((item) => (
+    <button
+      key={item.name}
+      className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 
+                 text-base transition flex items-center justify-center"
+      aria-label={item.name}
+    >
+      <span className="text-lg">{item.icon}</span>
+    </button>
+  ))}
+</div>
+
         </div>
       </footer>
     </div>

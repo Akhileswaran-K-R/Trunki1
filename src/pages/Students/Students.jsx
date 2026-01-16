@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Gamepad2 } from "lucide-react";
+import mascot from "../../assets/imagesvg.png"; // adjust path if needed
+
 
 const StudentPlay = () => {
   const [step, setStep] = useState(1);
-  const [name, setName] = useState("");
+const [classnumber, setclass] = useState("");
+const [number, setNumber] = useState("");
 
   useEffect(() => {
     if (step === 3) {
@@ -19,7 +22,11 @@ const StudentPlay = () => {
 
       {/* LEFT SIDE – ICON AREA */}
       <div className="w-1/2 flex items-center justify-center bg-pink-600">
-        <Gamepad2 size={180} strokeWidth={1.5} />
+        <img
+          src={mascot}
+          alt="Game Mascot"
+          className="max-w-[80%] max-h-[80%] object-contain drop-shadow-xl"
+        />
       </div>
 
       {/* RIGHT SIDE – CONTENT */}
@@ -40,34 +47,68 @@ const StudentPlay = () => {
             </button>
           </>
         )}
-
+ 
         {/* STEP 2 */}
         {step === 2 && (
-          <div className="bg-white text-pink-600 p-8 rounded-2xl shadow-xl w-full max-w-md">
-            <h2 className="text-3xl font-bold mb-4 text-center">
-              What’s your name? 😊
-            </h2>
+  <div className="bg-white text-pink-600 p-8 rounded-2xl shadow-xl w-full max-w-md">
 
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
-              className="w-full px-4 py-3 rounded-lg border text-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
+   
+    <h2 className="text-2xl font-bold mb-4 text-center">
+      What’s Class Code? 
+    </h2>
 
-            <button
-              disabled={!name}
-              onClick={() => setStep(3)}
-              className="mt-6 w-full bg-pink-500 text-white py-3 rounded-lg font-bold disabled:opacity-50"
-            >
-              Continue →
-            </button>
-          </div>
-        )}
+    <input
+      type="tel"
+      value={classnumber}
+      onChange={(e) => setclass(e.target.value)}
+      placeholder="Enter your Class Code"
+      className="w-full px-4 py-3 rounded-lg border text-lg 
+                 focus:outline-none focus:ring-2 focus:ring-pink-400"
+    />
+
+    <button
+      disabled={!classnumber}
+      onClick={() => setStep(3)}
+      className="mt-6 w-full bg-pink-500 text-white py-3 rounded-lg 
+                 font-bold disabled:opacity-50"
+    >
+      Continue →
+    </button>
+
+  </div>
+)}
+{step === 3 && (
+  <div className="bg-white text-pink-600 p-8 rounded-2xl shadow-xl w-full max-w-md">
+
+   
+    <h2 className="text-2xl font-bold mb-4 text-center">
+      What’s your roll number? 
+    </h2>
+
+    <input
+      type="tel"
+      value={number}
+      onChange={(e) => setNumber(e.target.value)}
+      placeholder="Enter your roll number"
+      className="w-full px-4 py-3 rounded-lg border text-lg 
+                 focus:outline-none focus:ring-2 focus:ring-pink-400"
+    />
+
+    <button
+      disabled={!number}
+      onClick={() => setStep(3)}
+      className="mt-6 w-full bg-pink-500 text-white py-3 rounded-lg 
+                 font-bold disabled:opacity-50"
+    >
+      Continue →
+    </button>
+
+  </div>
+)}
+
 
         {/* STEP 3 */}
-        {step === 3 && (
+        {step === 4 && (
           <div className="text-center animate-pulse">
             <h1 className="text-4xl font-extrabold mb-3">
               Get Ready, {name}! 🚀
@@ -77,7 +118,7 @@ const StudentPlay = () => {
         )}
 
         {/* STEP 4 */}
-        {step === 4 && (
+        {step === 5 && (
           <div className="text-center">
             <h1 className="text-4xl font-extrabold mb-4">
               Quiz Time! 🧠
