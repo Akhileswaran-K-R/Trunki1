@@ -30,7 +30,7 @@ const TopNavbar = () => {
     <header className="fixed top-4 left-0 w-full z-50 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="cursor-pointer" onClick={() => navigate("/")}>
-          <h1 className="text-2xl font-extrabold select-none text-stroke-pink">
+          <h1 className="text-3xl walter-turncoat-regular  select-none text-stroke-pink">
             Trunki
           </h1>
         </div>
