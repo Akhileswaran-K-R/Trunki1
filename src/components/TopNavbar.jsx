@@ -29,7 +29,6 @@ const TopNavbar = () => {
   return (
     <header className="fixed top-4 left-0 w-full z-50 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: App Name */}
         <div className="cursor-pointer" onClick={() => navigate("/")}>
           <h1 className="text-2xl font-extrabold select-none text-stroke-pink">
             Trunki
