@@ -1,0 +1,37 @@
+/* index.css */
+
+/* Tailwind base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global body styles */
+body {
+  @apply bg-gray-50 text-gray-800 font-sans min-h-screen;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fade-in utility class using your Tailwind animation */
+.fade-in {
+  @apply animate-fadeIn;
+}
+
+/* Optional: helper classes */
+/* .text-center { @apply text-center; } */
+.flex-center { @apply flex justify-center items-center; }
+/* Floating animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+/* index.css */
+/* index.css */
+.text-stroke-pink {
+  -webkit-text-stroke: 1px #ec4899; /* Tailwind pink-500 */
+  color: white; /* text fill color */
+}
