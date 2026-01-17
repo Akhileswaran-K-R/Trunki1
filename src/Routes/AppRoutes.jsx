@@ -6,6 +6,7 @@ import UserType from '../components/Auth/Login';
 import StudentPage from '../pages/Students/Students';
 import TeacherPage from '../pages/Teachers/TeacherDashboard';
 import Signup from '../components/Auth/Signup';
+import RAGChatbot from '../components/Chatbot/RAGChatbot'; 
 // import AssessmentGame from '../pages/Students/assesmentPage';
 
 const AppRoutes = () => {
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="/student" element={<StudentPage />} />
         <Route path="/teacherDashboard" element={<TeacherPage />} />
         <Route path="/signup" element={<Signup/>}/>
+        <Route path='/RAGchat' element={<RAGChatbot/>}/>
       </Routes>
   );
 };
