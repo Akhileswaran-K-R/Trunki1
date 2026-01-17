@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { askRAG } from "../../api/RAGapi";
-import AIVideo from "../../assets/wingsvideo.mp4"; // <-- your video here
+import AIVideo from "../../assets/wingsvideo.mp4";
 
 export default function RAGChatbot() {
   const [messages, setMessages] = useState([]);
@@ -36,10 +36,14 @@ export default function RAGChatbot() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-pink-50 p-4">
-      <div className="flex w-[80%] h-[80%] bg-white rounded-3xl shadow-2xl overflow-hidden">
+      <div className="flex flex-col md:flex-row w-[90%] h-[80%] bg-white rounded-3xl shadow-2xl overflow-hidden">
         
         {/* Left: AI Video */}
-        <div className="w-[35%] bg-pink-100 flex items-center justify-center">
+        <div
+          className={`w-full md:w-[35%] bg-pink-100 flex items-center justify-center transition-all duration-300 ${
+            loading ? "scale-105 shadow-2xl" : ""
+          }`}
+        >
           <video
             src={AIVideo}
             autoPlay
@@ -51,11 +55,13 @@ export default function RAGChatbot() {
         </div>
 
         {/* Right: Chat Section */}
-        <div className="w-[65%] flex flex-col">
+        <div className="w-full md:w-[65%] flex flex-col">
+          {/* Header */}
           <div className="bg-pink-600 text-white px-6 py-4 text-2xl font-bold">
             Trunki AI Helper
           </div>
 
+          {/* Messages */}
           <div className="flex-1 overflow-y-auto p-6 space-y-3 bg-pink-50">
             {messages.map((m, i) => (
               <div
@@ -98,6 +104,7 @@ export default function RAGChatbot() {
             <div ref={bottomRef} />
           </div>
 
+          {/* Input */}
           <div className="p-4 border-t flex gap-3 items-center bg-white">
             <input
               value={input}
